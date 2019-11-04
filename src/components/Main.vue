@@ -5,7 +5,12 @@
     <Spinner v-if="isLoading" />
     <button v-if="selectedTeam" @click="setSelectedTeam(null)" class="back">Back</button>
     <Teams v-if="!selectedTeam" :teams="teams" :onClick="setSelectedTeam" />
-    <Players v-if="selectedTeam" :players="players" :onClick="setSelectedPlayer" />
+    <Players
+      v-if="selectedTeam"
+      :players="players"
+      :onClick="setSelectedPlayer"
+      :abbrev="selectedTeam.Abbrev"
+    />
   </div>
 </template>
 
@@ -16,7 +21,7 @@ import Players from "./Players";
 import Spinner from "./Spinner";
 import { getPlayersBioStats } from "./../helper/api-calls";
 import { getPlayerHeadshotUrl } from "./../helper/api-helper";
-import { teams } from "./../constants/nba";
+import teams from "./../data/teams.js";
 
 const Main = Vue.extend({
   data() {
@@ -28,9 +33,6 @@ const Main = Vue.extend({
       selectedPlayer: null,
       isLoading: false
     };
-  },
-  props: {
-    msg: String
   },
   computed: {
     computedTeam() {
@@ -82,7 +84,6 @@ const Main = Vue.extend({
 export default Main;
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
 .back {
   background: #022f4f;

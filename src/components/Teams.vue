@@ -43,8 +43,8 @@ export default {
 
   &__team {
     display: block;
-    width: 80px;
-    height: 80px;
+    width: 100px;
+    height: 100px;
     padding: 5px;
     margin: 0;
     transition: all 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
@@ -53,7 +53,7 @@ export default {
       transform: scale3d(1.1, 1.1, 1);
     }
 
-    @media screen and (min-width: 500px) {
+    @media screen and (min-width: 800px) {
       width: 16.6666666%;
       height: 16.6666666%;
     }

@@ -1,4 +1,4 @@
-export const teams = {
+export default {
   'Atlanta Hawks': {
     TeamID: 1610612737,
     Abbrev: 'ATL',
